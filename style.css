@@ -1,0 +1,104 @@
+/* إعدادات عامة */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  background: #272725;
+  color: #940000;
+  line-height: 1.8;
+  scroll-behavior: smooth;
+}
+
+/* النافبار */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #1a1a1a;
+}
+.logo h1 {color:#940000;}
+.nav-links {display:flex; gap:20px; list-style:none;}
+.nav-links li a {
+  color:#fff;
+  transition:0.3s;
+}
+.nav-links li a:hover {color:#940000;}
+
+/* برجر منيو */
+.burger {display:none; font-size:2rem; color:#fff; cursor:pointer;}
+@media (max-width: 768px){
+  .nav-links {display:none; flex-direction:column; background:#111; position:absolute; top:60px; right:0; padding:20px;}
+  .nav-links.active {display:flex;}
+  .burger {display:block;}
+}
+
+/* الهيدر */
+header {
+  text-align:center;
+  padding:60px 20px;
+  background:#000;
+}
+.server-logo {
+  width:120px; margin-bottom:20px;
+}
+.owner-icon {
+  width:80px; height:80px; border-radius:50%; margin-bottom:10px;
+}
+header h2 {color:#940000; margin-bottom:10px;}
+header p {color:#fff;}
+
+/* الأقسام */
+section {
+  padding:60px 20px;
+  text-align:center;
+  animation: fadeIn 1.2s ease;
+}
+section h2 {
+  font-size:2rem;
+  margin-bottom:20px;
+  color:#940000;
+}
+section p, section li {color:#fff;}
+
+/* المميزات */
+.features-grid {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+.feature-box {
+  background:#1a1a1a;
+  padding:20px;
+  border-radius:12px;
+  color:#fff;
+  transition:0.3s;
+}
+.feature-box:hover {transform:translateY(-5px); box-shadow:0 8px 20px rgba(148,0,0,0.5);}
+
+/* الإنجازات + القوانين */
+ul {list-style:none; padding:0;}
+ul li {margin:10px 0;}
+
+/* زر الديسكورد */
+.discord-btn {
+  display:inline-block;
+  margin-top:10px;
+  padding:12px 20px;
+  background:#940000;
+  color:#fff;
+  border-radius:8px;
+  transition:0.3s;
+}
+.discord-btn:hover {background:#ff1a1a;}
+
+/* الفوتر */
+footer {
+  background:#111;
+  text-align:center;
+  padding:15px;
+  color:#fff;
+}
+
+/* أنيميشن */
+@keyframes fadeIn {from{opacity:0;} to{opacity:1;}}
