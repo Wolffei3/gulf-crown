@@ -4,297 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gulf Crown | قولف كراون</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjMiIHN0cm9rZT0iIzk0MDAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxwYXRoIGQ9Ik0xNSAzMEwzNSAzMCIgc3Ryb2tlPSIjOTQwMDAwIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTIwIDIwTDMwIDQwIiBzdHJva2U9IiM5NDAwMDAiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMzAgMjBMMjAgNDAiIHN0cm9rZT0iIzk0MDAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=" alt="Gulf Crown Logo">
-                <h2>Gulf Crown | <span>قولف كراون</span></h2>
+                <img src="logo.png" alt="Gulf Crown Logo" class="logo-img">
+                <h1>Gulf Crown</h1>
             </div>
-            <div class="nav-menu">
-                <a href="#about">عن السيرفر</a>
-                <a href="#features">المميزات</a>
-                <a href="#achievements">الإنجازات</a>
-                <a href="#rules">القوانين</a>
-                <a href="#join">انضم إلينا</a>
-            </div>
-            <div class="burger-menu">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="mobile-menu">
-                <a href="#about">عن السيرفر</a>
-                <a href="#features">المميزات</a>
-                <a href="#achievements">الإنجازات</a>
-                <a href="#rules">القوانين</a>
-                <a href="#join">انضم إلينا</a>
-                <a href="https://discord.gg/gc5" class="discord-btn" target="_blank">
-                    <i class="fab fa-discord"></i> انضم للديسكورد
-                </a>
+            <div class="profile">
+                <img src="abu-khalid.jpg" alt="أبو خالد" class="profile-img">
+                <div class="burger-menu" id="burgerMenu">
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                </div>
             </div>
         </nav>
+        <div class="nav-menu" id="navMenu">
+            <a href="#home">الرئيسية</a>
+            <a href="#about">حول السيرفر</a>
+            <a href="#features">المميزات</a>
+            <a href="#achievements">الإنجازات</a>
+            <a href="#rules">القوانين</a>
+            <a href="#contact">التواصل</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
         <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">Gulf Crown | <span>قولف كراون</span></h1>
-                <p class="hero-subtitle">سيرفر GTA RP بنظام الحياة الواقعية</p>
-                <p class="hero-description">
-                    انضم إلى مغامرة لا مثيل لها في سيرفر Gulf Crown، حيث الواقعية تلتقي بالمتعة والإثارة. أنظمة متطورة، برمجة احترافية، وإدارة خبيرة تنتظرك.
-                </p>
-                <div class="hero-buttons">
-                    <a href="https://discord.gg/gc5" class="cta-btn" target="_blank">
-                        <i class="fab fa-discord"></i> انضم للديسكورد
-                    </a>
-                    <a href="#about" class="cta-btn secondary">
-                        <i class="fas fa-info-circle"></i> اكتشف المزيد
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="floating-card">
-                    <div class="card-content">
-                        <div class="owner-image">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3>أبو خالد</h3>
-                        <p>مؤسس ومدير السيرفر</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+            <h1 class="hero-title">Gulf Crown</h1>
+            <h2 class="hero-subtitle">قولف كراون</h2>
+            <p class="hero-description">سيرفر GTA RolePlay احترافي بأنظمة واقعية عالية المستوى<br>تجربة لعب فريدة مع برمجة حصرية وإدارة متميزة</p>
+            <a href="#contact" class="cta-button">انضم الآن</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="section animate-on-scroll" id="about">
         <div class="container">
-            <h2 class="section-title">عن <span>السيرفر</span></h2>
+            <h2 class="section-title">حول السيرفر</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
-                        سيرفر <strong>Gulf Crown</strong> هو سيرفر GTA بنظام RolePlay (RP) يتميز بالأنظمة الواقعية عالية المستوى، 
-                        واشتهر بالبرمجة الاحترافية خصوصًا في جانب البوتات التي ساهمت بتطوير تجربة اللاعبين.
-                    </p>
-                    <p>
-                        تحت إدارة <strong>أبو خالد</strong>، أصبح السيرفر واحدًا من أبرز السيرفرات في المنطقة، 
-                        حيث يجمع بين الأصالة في مفهوم الـ RP والتطور التقني في الأنظمة والبرمجة.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number" data-count="2000">0</div>
-                            <div class="stat-label">عضو مفعل</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number" data-count="40">0</div>
-                            <div class="stat-label">طلب في المتجر أسبوعيًا</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number" data-count="100">0</div>
-                            <div class="stat-label">نظام مخصص</div>
-                        </div>
-                    </div>
+                    <h3>نبذة عن السيرفر:</h3>
+                    <p>سيرفر Gulf Crown هو سيرفر GTA بنظام RolePlay (RP)، يتميز بالأنظمة الواقعية عالية المستوى، واشتهر بالبرمجة الاحترافية خصوصًا في جانب البوتات التي ساهمت بتطوير تجربة اللاعبين.</p>
                 </div>
-                <div class="about-image">
-                    <div class="hexagon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
+                <div class="about-text">
+                    <h3>صاحب السيرفر:</h3>
+                    <p>السيرفر برئاسة وإدارة أبو خالد، الذي يتمتع بخبرة واسعة في مجال البرمجة وإدارة السيرفرات، مما يضمن تجربة لعب مميزة ومستقرة لجميع الأعضاء.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="section animate-on-scroll" id="features">
         <div class="container">
-            <h2 class="section-title">مميزات <span>السيرفر</span></h2>
+            <h2 class="section-title">المميزات</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
+                    <div class="feature-icon">🔧</div>
                     <h3>برمجة احترافية</h3>
-                    <p>أنظمة مبرمجة خصيصًا للسيرفر بتقنيات حديثة وأداء متميز</p>
+                    <p>برمجة خاصة بالسيرفر تم تطويرها بأحدث التقنيات لضمان الاستقرار والأداء العالي</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
+                    <div class="feature-icon">⭐</div>
                     <h3>أنظمة حصرية</h3>
-                    <p>أنظمة محسّنة ومطورة لتجربة RP واقعية وممتعة</p>
+                    <p>أنظمة محسّنة لتجربة الـ RP مع تفاصيل واقعية تجعل التجربة أكثر متعة وإثارة</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
+                    <div class="feature-icon">👑</div>
                     <h3>إدارة قوية</h3>
-                    <p>إدارة ذات خبرة واسعة في مجال سيرفرات GTA RP</p>
+                    <p>فريق إداري متميز مع خبرة واسعة في المجال يضمن بيئة لعب عادلة ومنظمة</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>دعم فني</h3>
-                    <p>دعم فني متاح على مدار الساعة لمساعدة اللاعبين</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>حماية متقدمة</h3>
-                    <p>أنظمة حماية متطورة ضد الغش والمخالفات</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>تحديثات مستمرة</h3>
-                    <p>تحديثات دورية لإضافة محتوى جديد وتحسين التجربة</p>
+                    <div class="feature-icon">🤖</div>
+                    <h3>بوتات متطورة</h3>
+                    <p>بوتات احترافية تساهم في تحسين تجربة اللاعبين وتسهيل التفاعل داخل السيرفر</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Achievements Section -->
-    <section class="achievements" id="achievements">
+    <section class="section animate-on-scroll" id="achievements">
         <div class="container">
-            <h2 class="section-title">إنجازات <span>السيرفر</span></h2>
-            <div class="achievements-content">
+            <h2 class="section-title">الإنجازات</h2>
+            <div class="achievements-list">
                 <div class="achievement-item">
-                    <div class="achievement-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="achievement-text">
-                        <h3>٤٠ طلب خلال أسبوع واحد</h3>
-                        <p>وصلت مبيعات متجر السيرفر إلى ٤٠ طلب خلال أسبوع واحد فقط</p>
-                    </div>
+                    <span class="achievement-number" data-target="40">0</span>
+                    <p class="achievement-text">مبيعات المتجر<br>خلال أسبوع واحد</p>
                 </div>
-                
                 <div class="achievement-item">
-                    <div class="achievement-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="achievement-text">
-                        <h3>تخطي ٢٠٠٠ عضو مفعّل</h3>
-                        <p>تخطى السيرفر حاجز ٢٠٠٠ عضو مفعّل ونشط في المجتمع</p>
-                    </div>
+                    <span class="achievement-number" data-target="2000">0</span>
+                    <span class="achievement-plus">+</span>
+                    <p class="achievement-text">عضو مفعّل<br>في السيرفر</p>
                 </div>
-                
                 <div class="achievement-item">
-                    <div class="achievement-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="achievement-text">
-                        <h3>أسرع سيرفر نموًا</h3>
-                        <p>يحمل السيرفر لقب أسرع سيرفر نموًا في المنطقة</p>
-                    </div>
-                </div>
-                
-                <div class="achievement-item">
-                    <div class="achievement-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="achievement-text">
-                        <h3>أعلى تقييم</h3>
-                        <p>حصل على أعلى التقييمات من اللاعبين والخبراء</p>
-                    </div>
+                    <span class="achievement-number" data-target="100">0</span>
+                    <span class="achievement-percent">%</span>
+                    <p class="achievement-text">رضا الأعضاء<br>عن الخدمة</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Rules Section -->
-    <section class="rules" id="rules">
+    <section class="section animate-on-scroll" id="rules">
         <div class="container">
-            <h2 class="section-title">قوانين <span>السيرفر</span></h2>
-            <div class="rules-content">
-                <div class="rules-list">
-                    <div class="rule-item">
-                        <div class="rule-number">1</div>
-                        <div class="rule-text">
-                            <h3>الالتزام بالأنظمة</h3>
-                            <p>الالتزام الكامل بأنظمة السيرفر والقوانين المحددة</p>
-                        </div>
+            <h2 class="section-title">القوانين</h2>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <div class="rule-number">1</div>
+                    <div class="rule-content">
+                        <strong>احترام الأعضاء:</strong>
+                        <p>يجب احترام جميع الأعضاء والموظفين داخل السيرفر</p>
                     </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-number">2</div>
-                        <div class="rule-text">
-                            <h3>الاحترام المتبادل</h3>
-                            <p>التحلي بالاحترام تجاه جميع اللاعبين والإدارة</p>
-                        </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">2</div>
+                    <div class="rule-content">
+                        <strong>اللعب بروح الفريق:</strong>
+                        <p>التعاون مع الآخرين وتجنب الأعمال المدمرة</p>
                     </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-number">3</div>
-                        <div class="rule-text">
-                            <h3>منع الغش</h3>
-                            <p>يُمنع منعًا باتًا استخدام أي برامج أو وسائل غش</p>
-                        </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">3</div>
+                    <div class="rule-content">
+                        <strong>عدم استخدام الشيتات:</strong>
+                        <p>منع استخدام أي برامج غير مشروعة أو تلاعب</p>
                     </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-number">4</div>
-                        <div class="rule-text">
-                            <h3>الحفاظ على البيئة</h3>
-                            <p>الحفاظ على بيئة لعب نظيفة ومناسبة للجميع</p>
-                        </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">4</div>
+                    <div class="rule-content">
+                        <strong>الالتزام بالـ RP:</strong>
+                        <p>الحفاظ على طابع اللعب التمثيلي في جميع الأوقات</p>
                     </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-number">5</div>
-                        <div class="rule-text">
-                            <h3>التقيد بالتوجيهات</h3>
-                            <p>الالتزام بتوجيهات الإدارة وقراراتها</p>
-                        </div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-number">6</div>
-                        <div class="rule-text">
-                            <h3>الإبلاغ عن المخالفات</h3>
-                            <p>الإبلاغ عن أي مخالفات أو مشكلات تواجهها</p>
-                        </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">5</div>
+                    <div class="rule-content">
+                        <strong>عدم السب والشتم:</strong>
+                        <p>منع استخدام الألفاظ النابية أو المسيئة</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Join Section -->
-    <section class="join" id="join">
+    <!-- Contact Section -->
+    <section class="section animate-on-scroll" id="contact">
         <div class="container">
-            <h2 class="section-title">انضم <span>إلينا</span></h2>
-            <div class="join-content">
-                <div class="join-text">
-                    <p>انضم إلى مجتمع Gulf Crown الآن وكن جزءًا من مغامرة لا تُنسى</p>
-                    <h3>رابط الديسكورد الرسمي:</h3>
-                    <a href="https://discord.gg/gc5" class="discord-link" target="_blank">
-                        <i class="fab fa-discord"></i> discord.gg/gc5
-                    </a>
-                </div>
-                <div class="join-image">
-                    <div class="discord-card">
-                        <i class="fab fa-discord"></i>
-                        <h3>Gulf Crown Discord</h3>
-                        <p>انقر للانضمام إلى مجتمعنا</p>
-                    </div>
-                </div>
+            <div class="contact-section">
+                <h2 class="section-title">انضم إلينا</h2>
+                <p class="contact-description">كن جزءًا من مجتمع Gulf Crown واستمتع بتجربة RolePlay احترافية</p>
+                <a href="https://discord.gg/gc5" class="discord-link" target="_blank">
+                    <span class="discord-icon">🎮</span>
+                    انضم للديسكورد
+                </a>
+                <p class="discord-url">discord.gg/gc5</p>
             </div>
         </div>
     </section>
@@ -302,26 +176,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Gulf Crown | <span>قولف كراون</span></h3>
-                    <p>سيرفر GTA RP بنظام الحياة الواقعية</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#about">عن السيرفر</a>
-                    <a href="#features">المميزات</a>
-                    <a href="#rules">القوانين</a>
-                    <a href="#join">انضم إلينا</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://discord.gg/gc5" target="_blank"><i class="fab fa-discord"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Gulf Crown | جميع الحقوق محفوظة</p>
-            </div>
+            <p>© 2025 Gulf Crown | جميع الحقوق محفوظة</p>
         </div>
     </footer>
 
