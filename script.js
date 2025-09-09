@@ -1,45 +1,89 @@
-// Gulf Crown Website JavaScript
-
-// DOM Elements
-const burgerMenu = document.querySelector('.burger-menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-const navLinks = document.querySelectorAll('.nav-menu a, .mobile-menu a');
-const themeToggle = document.querySelector('.theme-toggle');
-const body = document.body;
-
-// Initialize the website
+// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initializeAnimations();
-    initializeEventListeners();
-    initializeScrollAnimations();
-    initializeCounters();
+    initializeWebsite();
 });
 
-// Mobile Menu Toggle
-function toggleMobileMenu() {
-    burgerMenu.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+// Initialize all website functionality
+function initializeWebsite() {
+    initBurgerMenu();
+    initSmoothScrolling();
+    initScrollAnimations();
+    initHeaderScroll();
+    initCounterAnimation();
+    initParallaxEffects();
+    initClickOutside();
 }
 
-// Close mobile menu when clicking on links
-function closeMobileMenu() {
-    burgerMenu.classList.remove('active');
-    mobileMenu.classList.remove('active');
-    body.style.overflow = '';
+// Burger Menu Functionality
+function initBurgerMenu() {
+    const burgerMenu = document.getElementById('burgerMenu');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (burgerMenu && navMenu) {
+        burgerMenu.addEventListener('click', toggleMenu);
+        
+        // Close menu when clicking on navigation links
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    }
+    
+    function toggleMenu() {
+        burgerMenu.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    }
+    
+    function closeMenu() {
+        burgerMenu.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 }
 
-// Animation Management
-function initializeAnimations() {
-    // Add CSS classes for scroll animations
-    const elementsToAnimate = document.querySelectorAll('.feature-card, .achievement-item, .rule-item');
-    elementsToAnimate.forEach((element, index) => {
-        element.classList.add('fade-in');
-        element.style.animationDelay = `${index * 0.1}s`;
+// Click outside to close menu
+function initClickOutside() {
+    document.addEventListener('click', function(event) {
+        const navMenu = document.getElementById('navMenu');
+        const burgerMenu = document.getElementById('burgerMenu');
+        const nav = document.querySelector('.nav');
+        
+        if (navMenu && burgerMenu && nav) {
+            if (!nav.contains(event.target) && navMenu.classList.contains('active')) {
+                burgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
     });
 }
 
-function initializeScrollAnimations() {
+// Smooth Scrolling for Anchor Links
+function initSmoothScrolling() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80; // Account for fixed header
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// Scroll Animations Observer
+function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -48,119 +92,133 @@ function initializeScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('animated');
                 
-                // Animate counters when achievements section is in view
+                // Trigger counter animation if it's an achievement section
                 if (entry.target.id === 'achievements') {
-                    animateCounters();
+                    startCounterAnimation();
                 }
             }
         });
     }, observerOptions);
     
-    const animatedElements = document.querySelectorAll('.fade-in');
-    animatedElements.forEach(element => {
-        observer.observe(element);
+    // Observe all elements with animate-on-scroll class
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => {
+        observer.observe(el);
     });
     
-    // Observe achievements section for counter animation
-    const achievementsSection = document.querySelector('#achievements');
-    if (achievementsSection) {
-        observer.observe(achievementsSection);
-    }
-}
-
-// Counter Animation
-function initializeCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    counters.forEach(counter => {
-        counter.innerText = '0';
+    // Add individual delays to feature cards and achievement items
+    const featureCards = document.querySelectorAll('.feature-card');
+    const achievementItems = document.querySelectorAll('.achievement-item');
+    const ruleItems = document.querySelectorAll('.rule-item');
+    
+    [...featureCards, ...achievementItems, ...ruleItems].forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+        item.classList.add('animate-on-scroll');
+        observer.observe(item);
     });
 }
 
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
+// Header Scroll Effect
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    let lastScrollY = window.scrollY;
     
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-count');
-        const increment = target / 100;
-        let current = 0;
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
         
-        const updateCounter = () => {
-            if (current < target) {
-                current += increment;
-                counter.innerText = Math.ceil(current);
-                setTimeout(updateCounter, 20);
+        if (header) {
+            if (currentScrollY > 100) {
+                header.classList.add('scrolled');
             } else {
-                counter.innerText = target;
+                header.classList.remove('scrolled');
             }
-        };
+            
+            // Hide header when scrolling down, show when scrolling up
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+        }
         
-        updateCounter();
+        lastScrollY = currentScrollY;
     });
 }
 
-// Smooth scrolling for navigation links
-function smoothScroll(target) {
-    const element = document.querySelector(target);
-    if (element) {
-        window.scrollTo({
-            top: element.offsetTop - 80,
-            behavior: 'smooth'
+// Counter Animation for Achievement Numbers
+function initCounterAnimation() {
+    let countersAnimated = false;
+    
+    window.startCounterAnimation = function() {
+        if (countersAnimated) return;
+        countersAnimated = true;
+        
+        const counters = document.querySelectorAll('.achievement-number');
+        
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const increment = target / 50; // Animation duration control
+            let current = 0;
+            
+            const updateCounter = () => {
+                if (current < target) {
+                    current += increment;
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            
+            updateCounter();
         });
-    }
+    };
 }
 
-// Event Listeners
-function initializeEventListeners() {
-    // Mobile menu toggle
-    burgerMenu.addEventListener('click', toggleMobileMenu);
+// Parallax Effects
+function initParallaxEffects() {
+    const heroBackground = document.querySelector('.hero-bg');
     
-    // Close mobile menu when clicking on links
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            if (link.getAttribute('href').startsWith('#')) {
-                e.preventDefault();
-                const target = link.getAttribute('href');
-                closeMobileMenu();
-                smoothScroll(target);
-            }
-        });
-    });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (mobileMenu.classList.contains('active') && 
-            !e.target.closest('.mobile-menu') && 
-            !e.target.closest('.burger-menu')) {
-            closeMobileMenu();
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        if (heroBackground) {
+            heroBackground.style.transform = `translateY(${rate}px)`;
         }
     });
+}
+
+// Add hover effects for interactive elements
+function initHoverEffects() {
+    // Feature cards tilt effect
+    const featureCards = document.querySelectorAll('.feature-card');
     
-    // Header scroll effect
-    window.addEventListener('scroll', handleHeaderScroll);
-    
-    // Discord link handler
-    const discordLinks = document.querySelectorAll('a[href*="discord"]');
-    discordLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.open(link.href, '_blank');
+    featureCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
         });
     });
 }
 
-// Header scroll effect
-function handleHeaderScroll() {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(39, 39, 37, 0.98)';
-        header.style.backdropFilter = 'blur(20px)';
-    } else {
-        header.style.background = 'rgba(39, 39, 37, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
-    }
-}
+// Initialize hover effects after DOM is loaded
+document.addEventListener('DOMContentLoaded', initHoverEffects);
 
 // Utility Functions
 function debounce(func, wait) {
@@ -175,42 +233,68 @@ function debounce(func, wait) {
     };
 }
 
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
-}
+// Optimized scroll handler
+const optimizedScrollHandler = debounce(() => {
+    // Additional scroll optimizations can be added here
+}, 10);
 
-// Performance optimizations
-const debouncedResize = debounce(() => {
-    // Handle resize events
-}, 250);
+window.addEventListener('scroll', optimizedScrollHandler);
 
-const throttledScroll = throttle(() => {
-    // Handle scroll events
-    handleHeaderScroll();
-}, 16);
-
-window.addEventListener('resize', debouncedResize);
-window.addEventListener('scroll', throttledScroll);
-
-// Add loading animation
+// Loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+    
+    // Trigger initial animations
+    setTimeout(() => {
+        const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-description, .cta-button');
+        heroElements.forEach((el, index) => {
+            setTimeout(() => {
+                el.style.animationPlayState = 'running';
+            }, index * 200);
+        });
+    }, 300);
 });
 
-// Error handling
-window.addEventListener('error', (e) => {
-    console.error('JavaScript Error:', e.error);
+// Keyboard navigation support
+document.addEventListener('keydown', (e) => {
+    const navMenu = document.getElementById('navMenu');
+    const burgerMenu = document.getElementById('burgerMenu');
+    
+    // Close menu with Escape key
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+        burgerMenu.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 });
 
-// Console message
-console.log('%c🦅 Gulf Crown | قولف كراون', 'color: #940000; font-size: 20px; font-weight: bold;');
-console.log('%cمرحبًا بك في سيرفر Gulf Crown للحياة الواقعية', 'color: #e0e0e0; font-size: 14px;');
+// Performance optimization for mobile devices
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Reduce animations on mobile for better performance
+    document.documentElement.classList.add('mobile-device');
+}
+
+// Add CSS class for mobile-specific styles if needed
+const style = document.createElement('style');
+style.textContent = `
+    .mobile-device .hero-bg {
+        animation-duration: 60s;
+    }
+    
+    .mobile-device .feature-card:hover {
+        transform: translateY(-10px) !important;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Console log for developers
+console.log('%c🎮 Gulf Crown Website Loaded Successfully!', 'color: #940000; font-size: 16px; font-weight: bold;');
+console.log('%cDeveloped with ❤️ for Gulf Crown RP Server', 'color: #666; font-size: 12px;');
