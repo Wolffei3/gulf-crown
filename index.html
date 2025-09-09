@@ -1,89 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gulf Crown | قولف كراون</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <title>Gulf Crown</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- الهيدر -->
   <header>
-    <div class="navbar">
-      <div class="logo">
-        <h1>Gulf Crown</h1>
-      </div>
-      <div class="burger" onclick="toggleMenu()">☰</div>
-      <ul class="nav-links">
-        <li><a href="#about">عن السيرفر</a></li>
-        <li><a href="#features">المميزات</a></li>
-        <li><a href="#achievements">الإنجازات</a></li>
-        <li><a href="#rules">القوانين</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-      </ul>
-    </div>
-
-    <div class="header-content">
-      <img src="logo.png" alt="شعار السيرفر" class="server-logo">
-      <img src="owner.png" alt="أبو خالد" class="owner-icon">
-      <h2>سيرفر قولف كراون | Gulf Crown</h2>
-      <p>أقوى سيرفر GTA RolePlay بأنظمة احترافية</p>
-    </div>
+    <img src="https://cdn.discordapp.com/attachments/1411293695080140892/1415007945984442538/IMG_4155.png?ex=68c1a457&is=68c052d7&hm=5b11218c25b315fa90fa65135ec01f72e440548438f0fc2c5874c0ec166aa188&" alt="Gulf Crown Logo" class="logo">
+    <nav>
+      <button class="lang-btn" onclick="setLanguage('ar')">🇸🇦</button>
+      <button class="lang-btn" onclick="setLanguage('en')">🇬🇧</button>
+      <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+    </nav>
   </header>
 
-  <!-- القسم التعريفي -->
-  <section id="about">
-    <h2>عن السيرفر</h2>
-    <p>
-      سيرفر Gulf Crown هو سيرفر GTA بنظام RolePlay (RP)، يتميز بالأنظمة الواقعية عالية المستوى،
-      واشتهر بالبرمجة الاحترافية خصوصًا في جانب البوتات التي ساهمت بتطوير تجربة اللاعبين.
-    </p>
-    <p><strong>إدارة السيرفر:</strong> أبو خالد</p>
-  </section>
+  <main>
+    <section class="hero">
+      <h1 data-lang-ar="قولف كراون" data-lang-en="Gulf Crown">قولف كراون</h1>
+      <p data-lang-ar="سيرفر GTA RP يتميز بالبرمجة الاحترافية والأنظمة المتكاملة." 
+         data-lang-en="GTA RP server known for professional programming and integrated systems.">
+         سيرفر GTA RP يتميز بالبرمجة الاحترافية والأنظمة المتكاملة.
+      </p>
+      <a href="https://discord.gg/gc5" target="_blank" class="cta">إنضم الآن</a>
+    </section>
 
-  <!-- المميزات -->
-  <section id="features">
-    <h2>المميزات</h2>
-    <div class="features-grid">
-      <div class="feature-box">⚙ برمجة احترافية خاصة بالسيرفر</div>
-      <div class="feature-box"> أنظمة حصرية محسّنة لتجربة الـ RP</div>
-      <div class="feature-box"> إدارة قوية وخبرة بالمجال</div>
-    </div>
-  </section>
+    <section class="about">
+      <h2 data-lang-ar="عن السيرفر" data-lang-en="About the Server">عن السيرفر</h2>
+      <p data-lang-ar="قولف كراون هو مجتمع تفاعلي مبني على الواقعية، حيث نوفر تجربة لعب فريدة مليئة بالتفاصيل والأنظمة المتطورة."
+         data-lang-en="Gulf Crown is an interactive community built on realism, providing a unique roleplay experience with advanced systems.">
+         قولف كراون هو مجتمع تفاعلي مبني على الواقعية، حيث نوفر تجربة لعب فريدة مليئة بالتفاصيل والأنظمة المتطورة.
+      </p>
+    </section>
 
-  <!-- الإنجازات -->
-  <section id="achievements">
-    <h2>الإنجازات</h2>
-    <ul>
-      <li> وصول مبيعات متجر السيرفر إلى ٤٠ طلب خلال أسبوع واحد</li>
-      <li> تخطي عدد ٢٠٠٠ عضو مفعّل</li>
-      <li> إنجازات أخرى تبرز نمو السيرفر</li>
-    </ul>
-  </section>
+    <section class="skills">
+      <h2 data-lang-ar="مميزاتنا" data-lang-en="Our Features">مميزاتنا</h2>
+      <ul>
+        <li data-lang-ar=" برمجة بوتات احترافية" data-lang-en=" Professional bot programming"> برمجة بوتات احترافية</li>
+        <li data-lang-ar=" تجربة لعب واقعية" data-lang-en=" Realistic gameplay experience"> تجربة لعب واقعية</li>
+        <li data-lang-ar=" مجتمع متعاون" data-lang-en=" Cooperative community"> مجتمع متعاون</li>
+      </ul>
+    </section>
+  </main>
 
-  <!-- القوانين -->
-  <section id="rules">
-    <h2>القوانين</h2>
-    <ul>
-      <li> احترام جميع اللاعبين</li>
-      <li> ممنوع الغش أو استغلال الثغرات</li>
-      <li> الالتزام بالـ RolePlay</li>
-      <li> اتباع قوانين الإدارة</li>
-    </ul>
-  </section>
-
-  <!-- تواصل معنا -->
-  <section id="contact">
-    <h2>انضم إلينا</h2>
-    <p> رابط الديسكورد الرسمي:</p>
-    <a href="https://discord.gg/gc5" target="_blank" class="discord-btn">discord.gg/gc5</a>
-  </section>
-
-  <!-- الفوتر -->
   <footer>
-    <p>© 2025 Gulf Crown | جميع الحقوق محفوظة</p>
+    <p data-lang-ar="الحقوق محفوظة © قولف كراون | الأونر: أبو خالد" 
+       data-lang-en="All rights reserved © Gulf Crown | Owner: Abu Khalid">
+       الحقوق محفوظة © قولف كراون | الأونر: أبو خالد
+    </p>
+    <img src="https://cdn.discordapp.com/attachments/1411293695080140892/1415007221842186270/IMG_4154.jpg?ex=68c1a3ab&is=68c0522b&hm=3c400e59c3b62fdb6988510ebe5bba5ff7e8d2c1b3ba0f241d00a1e5b320a212&" alt="Owner Abu Khalid" class="owner-icon">
   </footer>
 
   <script src="script.js"></script>
