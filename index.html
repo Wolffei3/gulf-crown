@@ -5,22 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gulf Crown</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- الهيدر -->
   <header>
-    <img src="https://cdn.discordapp.com/attachments/1411293695080140892/1415007945984442538/IMG_4155.png?ex=68c1a457&is=68c052d7&hm=5b11218c25b315fa90fa65135ec01f72e440548438f0fc2c5874c0ec166aa188&" alt="Gulf Crown Logo" class="logo">
+    <img src="https://cdn.discordapp.com/attachments/1411293695080140892/1415007945984442538/IMG_4155.png" 
+         alt="Gulf Crown Logo" class="logo">
+
     <nav>
       <button class="lang-btn" onclick="setLanguage('ar')">🇸🇦</button>
       <button class="lang-btn" onclick="setLanguage('en')">🇬🇧</button>
       <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+      <button class="burger" onclick="toggleMenu()">☰</button>
     </nav>
   </header>
 
+  <!-- قائمة البرجر -->
+  <div class="sidebar" id="sidebar">
+    <a href="#hero" onclick="toggleMenu()"> الرئيسية</a>
+    <a href="#about" onclick="toggleMenu()"> عن السيرفر</a>
+    <a href="#features" onclick="toggleMenu()"> المميزات</a>
+    <a href="#achievements" onclick="toggleMenu()"> الإنجازات</a>
+    <a href="#rules" onclick="toggleMenu()"> القوانين</a>
+    <a href="#contact" onclick="toggleMenu()"> تواصل معنا</a>
+  </div>
+
+  <!-- الرئيسية -->
   <main>
-    <section class="hero">
+    <section class="hero fade-in" id="hero">
       <h1 data-lang-ar="قولف كراون" data-lang-en="Gulf Crown">قولف كراون</h1>
       <p data-lang-ar="سيرفر GTA RP يتميز بالبرمجة الاحترافية والأنظمة المتكاملة." 
          data-lang-en="GTA RP server known for professional programming and integrated systems.">
@@ -29,7 +42,8 @@
       <a href="https://discord.gg/gc5" target="_blank" class="cta">إنضم الآن</a>
     </section>
 
-    <section class="about">
+    <!-- عن السيرفر -->
+    <section class="about slide-up" id="about">
       <h2 data-lang-ar="عن السيرفر" data-lang-en="About the Server">عن السيرفر</h2>
       <p data-lang-ar="قولف كراون هو مجتمع تفاعلي مبني على الواقعية، حيث نوفر تجربة لعب فريدة مليئة بالتفاصيل والأنظمة المتطورة."
          data-lang-en="Gulf Crown is an interactive community built on realism, providing a unique roleplay experience with advanced systems.">
@@ -37,22 +51,48 @@
       </p>
     </section>
 
-    <section class="skills">
+    <!-- المميزات -->
+    <section class="skills fade-in" id="features">
       <h2 data-lang-ar="مميزاتنا" data-lang-en="Our Features">مميزاتنا</h2>
       <ul>
-        <li data-lang-ar=" برمجة بوتات احترافية" data-lang-en=" Professional bot programming"> برمجة بوتات احترافية</li>
-        <li data-lang-ar=" تجربة لعب واقعية" data-lang-en=" Realistic gameplay experience"> تجربة لعب واقعية</li>
-        <li data-lang-ar=" مجتمع متعاون" data-lang-en=" Cooperative community"> مجتمع متعاون</li>
+        <li> برمجة بوتات احترافية</li>
+        <li> تجربة لعب واقعية</li>
+        <li> مجتمع متعاون</li>
       </ul>
+    </section>
+
+    <!-- الإنجازات -->
+    <section class="achievements slide-up" id="achievements">
+      <h2> الإنجازات</h2>
+      <ul>
+        <li> 40 طلب متجر خلال أسبوع واحد</li>
+        <li> أكثر من 2000 عضو مفعّل</li>
+        <li> أنظمة حصرية متطورة</li>
+      </ul>
+    </section>
+
+    <!-- القوانين -->
+    <section class="rules fade-in" id="rules">
+      <h2> القوانين</h2>
+      <ul>
+        <li> يمنع السب أو الإساءة</li>
+        <li> احترام الجميع واجب</li>
+        <li> الالتزام بأنظمة الـRP</li>
+      </ul>
+    </section>
+
+    <!-- تواصل -->
+    <section class="contact slide-up" id="contact">
+      <h2> تواصل معنا</h2>
+      <p> رابط الديسكورد: <a href="https://discord.gg/gc5">discord.gg/gc5</a></p>
     </section>
   </main>
 
+  <!-- الفوتر -->
   <footer>
-    <p data-lang-ar="الحقوق محفوظة © قولف كراون | الأونر: أبو خالد" 
-       data-lang-en="All rights reserved © Gulf Crown | Owner: Abu Khalid">
-       الحقوق محفوظة © قولف كراون | الأونر: أبو خالد
-    </p>
-    <img src="https://cdn.discordapp.com/attachments/1411293695080140892/1415007221842186270/IMG_4154.jpg?ex=68c1a3ab&is=68c0522b&hm=3c400e59c3b62fdb6988510ebe5bba5ff7e8d2c1b3ba0f241d00a1e5b320a212&" alt="Owner Abu Khalid" class="owner-icon">
+    <p>© 2025 Gulf Crown | جميع الحقوق محفوظة | الأونر: أبو خالد</p>
+    <img src="https://cdn.discordapp.com/attachments/1411293695080140892/1415007221842186270/IMG_4154.jpg" 
+         alt="Owner Abu Khalid" class="owner-icon">
   </footer>
 
   <script src="script.js"></script>
